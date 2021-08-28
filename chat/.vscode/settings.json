@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    ".dart_tool": true,
+    ".idea": true,
+    ".gitignore": true,
+    ".metadata": true,
+    "CHANGELOG.md": true,
+    ".packages": true,
+    "chat.iml": true,
+    "README.md": true,
+    "LICENSE": true,
+    ".vscode": true
+  }
+}
