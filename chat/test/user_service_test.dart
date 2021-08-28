@@ -20,10 +20,10 @@ void main() {
     await cleanDb(r, connection);
   });
 
-  test('creates a new user document in database', () async {
+  test('Crea un nuevo usuario en DB', () async {
     final user = User(
-      username: 'Hello World',
-      photoUrl: 'jijijiiji',
+      username: 'User_prueba',
+      photoUrl: 'foto_perfil',
       active: true,
       lastseen: DateTime.now(),
     );
@@ -31,10 +31,10 @@ void main() {
     expect(userWithId.id, isNotEmpty);
   });
 
-  test('get online users', () async {
+  test('Obtiene usuarios online', () async {
     final user = User(
-      username: 'test',
-      photoUrl: 'url',
+      username: 'User_prueba',
+      photoUrl: 'foto_perfil',
       active: true,
       lastseen: DateTime.now(),
     );
