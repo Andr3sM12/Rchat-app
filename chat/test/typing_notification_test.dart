@@ -14,7 +14,7 @@ void main() {
   setUp(() async {
     connection = await r.connect();
     await createDb(r, connection);
-    sut = TypingNotification(r, connection);
+    sut = TypingNotification(r, connection, null);
   });
 
   tearDown(() async {
