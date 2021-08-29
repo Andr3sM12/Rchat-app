@@ -13,18 +13,14 @@ class TypingNotification implements ITypingNotification {
 
   final _controller = StreamController<TypingEvent>.broadcast();
   StreamSubscription _changefeed;
-  // IUserService _userService;
+  IUserService _userService;
 
-  TypingNotification(
-    this._r,
-    this._connection,
-    /*this._userService*/
-  );
+  TypingNotification(this._r, this._connection, this._userService);
 
   @override
   Future<bool> send({@required TypingEvent event}) async {
-    // final receiver = await _userService.fetch(event.to);
-    // if (!receiver.active) return false;
+    final receiver = await _userService.fetch(event.to);
+    if (!receiver.active) return false;
     Map record = await _r
         .table('typing_events')
         .insert(event.toJson(), {'conflict': 'update'}).run(_connection);
