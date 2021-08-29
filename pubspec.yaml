@@ -21,23 +21,23 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
+  bloc: ^7.1.0
   chat:
     path: ./chat
-  bloc: ^7.1.0
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
-  permission_handler: ^5.0.1+1
-
+  flutter:
+    sdk: flutter
   flutter_bloc: ^7.0.1
   google_fonts: ^1.1.2
   http: ^0.12.2
   image_picker: ^0.6.7+22
+  intl: ^0.17.0
+  path: ^1.8.0
+  permission_handler: ^5.0.1+1
   rethinkdb_dart: ^2.3.2+6
   shared_preferences: ^2.0.6
   sqflite: ^2.0.0+4
-  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

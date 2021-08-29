@@ -2,7 +2,6 @@ import 'package:cham_app/data/datasources/datasource_contract.dart';
 import 'package:cham_app/models/chat.dart';
 import 'package:cham_app/models/local_message.dart';
 import 'package:chat/src/models/receipt.dart';
-
 import 'package:sqflite/sqflite.dart';
 
 class SqfliteDatasource implements IDatasource {

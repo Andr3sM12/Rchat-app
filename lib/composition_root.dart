@@ -53,8 +53,8 @@ class CompositionRoot {
     final viewModel = ChatsViewModel(_datasource, _userService);
     _chatsCubit = ChatsCubit(viewModel);
 
-    // _db.delete('chats');
-    // _db.delete('messages');
+    _db.delete('chats');
+    _db.delete('messages');
   }
 
   static Widget start() {
@@ -65,7 +65,7 @@ class CompositionRoot {
   }
 
   static Widget composeOnboardingUi() {
-    ImageUploader imageUploader = ImageUploader('http://localhost:3000/upload');
+    ImageUploader imageUploader = ImageUploader('http://10.0.2.2:3000/upload');
 
     OnboardingCubit onboardingCubit =
         OnboardingCubit(_userService, imageUploader, _localCache);
@@ -87,9 +87,7 @@ class CompositionRoot {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (BuildContext context) => homeCubit),
-        BlocProvider(
-          create: (BuildContext context) => _messageBloc,
-        ),
+        BlocProvider(create: (BuildContext context) => _messageBloc),
         BlocProvider(create: (BuildContext context) => _typingNotificationBloc),
         BlocProvider(create: (BuildContext context) => _chatsCubit)
       ],

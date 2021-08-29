@@ -46,7 +46,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
                   ),
                   child: Align(
                     alignment: Alignment.center,
-                    child: Text('Messages'),
+                    child: Text('Mensajes'),
                   ),
                 ),
               ),

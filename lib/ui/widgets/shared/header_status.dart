@@ -39,12 +39,12 @@ class HeaderStatus extends StatelessWidget {
                 child: typing == null
                     ? Text(
                         online
-                            ? 'online'
-                            : 'last seen ${DateFormat.yMd().add_jm().format(lastSeen)}',
+                            ? 'En linea'
+                            : 'Ultima vez ${DateFormat.yMd().add_jm().format(lastSeen)}',
                         style: Theme.of(context).textTheme.caption,
                       )
                     : Text(
-                        'typing..',
+                        'Escribiendo..',
                         style: Theme.of(context)
                             .textTheme
                             .caption

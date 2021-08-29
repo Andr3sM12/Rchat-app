@@ -137,8 +137,8 @@ class _OnboardingState extends State<Onboarding> {
   String _checkInputs() {
     var error = '';
     if (_username.isEmpty) error = 'Ingrese nombre de usuario valido';
-    // if (context.read<ProfileImageCubit>().state == null)
-    //   error = error + '\n' + 'Agregue una imagen de perfil';
+    if (context.read<ProfileImageCubit>().state == null)
+      error = error + '\n' + 'Agregue una imagen de perfil';
 
     return error;
   }

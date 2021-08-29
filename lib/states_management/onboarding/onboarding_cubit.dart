@@ -15,7 +15,10 @@ class OnboardingCubit extends Cubit<OnboardingState> {
 
   Future<void> connect(String name, File profileImage) async {
     emit(Loading());
+
+    // error de path, NoSuchMethodError: The getter 'path' was called on null.
     final url = await _imageUploader.uploadImage(profileImage);
+
     final user = User(
       username: name,
       photoUrl: url,

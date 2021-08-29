@@ -85,7 +85,7 @@ class _ChatsState extends State<Chats> {
             this.typingEvents.remove(state.event.from);
 
           if (this.typingEvents.contains(chat.from.id))
-            return Text('typing...',
+            return Text('Escribiendo...',
                 style: Theme.of(context)
                     .textTheme
                     .caption
