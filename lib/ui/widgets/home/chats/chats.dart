@@ -61,10 +61,7 @@ class _ChatsState extends State<Chats> {
 
   _chatItem(Chat chat) => ListTile(
         contentPadding: EdgeInsets.only(left: 16.0),
-        leading: ProfileImage(
-          imageUrl: chat.from.photoUrl,
-          online: chat.from.active,
-        ),
+        leading: ProfileImage(online: true),
         title: Text(
           chat.from.username,
           style: Theme.of(context).textTheme.subtitle2.copyWith(

@@ -61,9 +61,8 @@ class ReceiverMessage extends StatelessWidget {
                 isLightTheme(context) ? Colors.white : Colors.black,
             radius: 18,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child:
-                  Image.network(_url, width: 30, height: 30, fit: BoxFit.fill),
+              borderRadius: BorderRadius.circular(30.0),
+              child: Icon(Icons.person, size: 35.0, color: Colors.green),
             ),
           ),
         ],

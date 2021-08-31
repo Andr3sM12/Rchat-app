@@ -10,21 +10,14 @@ class User {
 
   User(
       {@required this.username,
-      @required this.photoUrl,
       @required this.active,
       @required this.lastseen});
 
-  toJson() => {
-        'username': username,
-        'photo_url': photoUrl,
-        'active': active,
-        'last_seen': lastseen
-      };
+  toJson() => {'username': username, 'active': active, 'last_seen': lastseen};
 
   factory User.fromJson(Map<String, dynamic> json) {
     final user = User(
         username: json['username'],
-        photoUrl: json['photo_url'],
         active: json['active'],
         lastseen: json['last_seen']);
     user._id = json['id'];

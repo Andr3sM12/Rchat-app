@@ -27,10 +27,7 @@ class _ActiveUsersState extends State<ActiveUsers> {
   }
 
   _listItem(User user) => ListTile(
-        leading: ProfileImage(
-          imageUrl: user.photoUrl,
-          online: true,
-        ),
+        leading: ProfileImage(online: true),
         title: Text(
           user.username,
           style: Theme.of(context).textTheme.caption.copyWith(

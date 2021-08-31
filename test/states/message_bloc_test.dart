@@ -1,5 +1,6 @@
 import 'package:cham_app/states_management/message/message_bloc.dart';
 import 'package:chat/chat.dart';
+// import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -14,7 +15,6 @@ void main() {
     messageService = FakeMessageService();
     user = User(
       username: 'test',
-      photoUrl: '',
       active: true,
       lastseen: DateTime.now(),
     );

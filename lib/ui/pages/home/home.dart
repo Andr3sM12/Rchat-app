@@ -59,7 +59,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
                     alignment: Alignment.center,
                     child: BlocBuilder<HomeCubit, HomeState>(
                         builder: (_, state) => state is HomeSuccess
-                            ? Text('Active(${state.onlineUsers.length})')
+                            ? Text('Usuarios(${state.onlineUsers.length})')
                             : Text('Active(0)')),
                   ),
                 ),

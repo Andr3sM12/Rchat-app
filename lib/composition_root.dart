@@ -11,10 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cham_app/cache/local_cache.dart';
 import 'package:cham_app/data/datasources/datasource_contract.dart';
 import 'package:cham_app/data/datasources/sqflite_datasource.dart';
-import 'package:cham_app/data/services/image_uploader.dart';
 import 'package:cham_app/states_management/message/message_bloc.dart';
 import 'package:cham_app/states_management/onboarding/onboarding_cubit.dart';
-import 'package:cham_app/states_management/onboarding/profile_image_cubit.dart';
 import 'package:cham_app/states_management/receipt/receipt_bloc.dart';
 import 'package:cham_app/states_management/typing/typing_notification_bloc.dart';
 import 'package:cham_app/ui/pages/onboarding/onboarding.dart';
@@ -40,7 +38,7 @@ class CompositionRoot {
 
   static configure() async {
     _r = Rethinkdb();
-    _connection = await _r.connect(host: '192.168.0.5', port: 28015);
+    _connection = await _r.connect(host: '192.168.0.2', port: 28015);
     _userService = UserService(_r, _connection);
     _messageService = MessageService(_r, _connection);
     _typingNotification = TypingNotification(_r, _connection, _userService);
@@ -65,16 +63,12 @@ class CompositionRoot {
   }
 
   static Widget composeOnboardingUi() {
-    ImageUploader imageUploader = ImageUploader('http://10.0.2.2:3000/upload');
-
     OnboardingCubit onboardingCubit =
-        OnboardingCubit(_userService, imageUploader, _localCache);
-    ProfileImageCubit imageCubit = ProfileImageCubit();
+        OnboardingCubit(_userService, _localCache);
     IOnboardingRouter router = OnboardingRouter(composeHomeUi);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (BuildContext context) => onboardingCubit),
-        BlocProvider(create: (BuildContext context) => imageCubit),
       ],
       child: Onboarding(router),
     );

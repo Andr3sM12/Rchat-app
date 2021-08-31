@@ -42,7 +42,7 @@ void main() {
       from: user.id,
       to: '3456',
       timestamp: DateTime.now(),
-      contents: 'Mensaje prueba',
+      contents: 'Mensaje pruebaa',
     );
 
     final res = await sut.send(message);
