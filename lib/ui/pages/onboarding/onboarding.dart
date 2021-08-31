@@ -3,10 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cham_app/colors.dart';
 import 'package:cham_app/states_management/onboarding/onboarding_cubit.dart';
 import 'package:cham_app/states_management/onboarding/onboarding_state.dart';
-import 'package:cham_app/states_management/onboarding/profile_image_cubit.dart';
 import 'package:cham_app/ui/pages/onboarding/onboarding_router.dart';
 import 'package:cham_app/ui/widgets/onboarding/logo.dart';
-import 'package:cham_app/ui/widgets/onboarding/profile_upload.dart';
 import 'package:cham_app/ui/widgets/shared/custom_text_field.dart';
 
 class Onboarding extends StatefulWidget {
@@ -18,6 +16,7 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
+  final imageUrl = Icons.person;
   String _username = '';
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,6 @@ class _OnboardingState extends State<Onboarding> {
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             _logo(context),
             Spacer(),
-            ProfileUpload(),
             Spacer(flex: 1),
             Padding(
               padding: EdgeInsets.only(left: 20.0, right: 20.0),
@@ -109,7 +107,7 @@ class _OnboardingState extends State<Onboarding> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Cham',
+          'R',
           style: Theme.of(context)
               .textTheme
               .headline4
@@ -130,15 +128,15 @@ class _OnboardingState extends State<Onboarding> {
   }
 
   _connectSession() async {
-    final profileImage = context.read<ProfileImageCubit>().state;
-    await context.read<OnboardingCubit>().connect(_username, profileImage);
+    // final profileImage = context.read<ProfileImageCubit>().state;
+    await context.read<OnboardingCubit>().connect(_username);
   }
 
   String _checkInputs() {
     var error = '';
     if (_username.isEmpty) error = 'Ingrese nombre de usuario valido';
-    if (context.read<ProfileImageCubit>().state == null)
-      error = error + '\n' + 'Agregue una imagen de perfil';
+    // if (context.read<ProfileImageCubit>().state == null)
+    // error = error + '\n' + 'Agregue una imagen de perfil';
 
     return error;
   }

@@ -23,7 +23,6 @@ void main() {
   test('Crea un nuevo usuario en DB', () async {
     final user = User(
       username: 'User_prueba',
-      photoUrl: 'foto_perfil',
       active: true,
       lastseen: DateTime.now(),
     );
@@ -34,7 +33,6 @@ void main() {
   test('Obtiene usuarios online', () async {
     final user = User(
       username: 'User_prueba',
-      photoUrl: 'foto_perfil',
       active: true,
       lastseen: DateTime.now(),
     );

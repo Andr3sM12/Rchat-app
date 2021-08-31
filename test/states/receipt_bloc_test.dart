@@ -14,7 +14,6 @@ void main() {
     receiptService = FakeReceiptService();
     user = User(
       username: 'test',
-      photoUrl: '',
       active: true,
       lastseen: DateTime.now(),
     );

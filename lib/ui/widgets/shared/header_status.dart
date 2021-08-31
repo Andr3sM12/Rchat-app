@@ -17,10 +17,7 @@ class HeaderStatus extends StatelessWidget {
       width: double.maxFinite,
       child: Row(
         children: [
-          ProfileImage(
-            imageUrl: imageUrl,
-            online: online,
-          ),
+          ProfileImage(online: online),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

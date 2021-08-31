@@ -1,27 +1,20 @@
-import 'dart:io';
-
 import 'package:chat/chat.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cham_app/cache/local_cache.dart';
-import 'package:cham_app/data/services/image_uploader.dart';
 import 'package:cham_app/states_management/onboarding/onboarding_state.dart';
 
 class OnboardingCubit extends Cubit<OnboardingState> {
   final IUserService _userService;
-  final ImageUploader _imageUploader;
   final ILocalCache _localCache;
-  OnboardingCubit(this._userService, this._imageUploader, this._localCache)
+
+  OnboardingCubit(this._userService, this._localCache)
       : super(OnboardingInitial());
 
-  Future<void> connect(String name, File profileImage) async {
+  Future<void> connect(String name) async {
     emit(Loading());
-
-    // error de path, NoSuchMethodError: The getter 'path' was called on null.
-    final url = await _imageUploader.uploadImage(profileImage);
 
     final user = User(
       username: name,
-      photoUrl: url,
       active: true,
       lastseen: DateTime.now(),
     );
