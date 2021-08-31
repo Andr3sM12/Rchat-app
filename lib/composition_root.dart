@@ -38,7 +38,7 @@ class CompositionRoot {
 
   static configure() async {
     _r = Rethinkdb();
-    _connection = await _r.connect(host: '192.168.0.2', port: 28015);
+    _connection = await _r.connect(host: '128.199.14.190', port: 28015);
     _userService = UserService(_r, _connection);
     _messageService = MessageService(_r, _connection);
     _typingNotification = TypingNotification(_r, _connection, _userService);

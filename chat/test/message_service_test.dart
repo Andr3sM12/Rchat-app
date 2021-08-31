@@ -14,7 +14,7 @@ void main() {
   MessageService sut;
 
   setUp(() async {
-    connection = await r.connect(host: '192.168.0.5', port: 28015);
+    connection = await r.connect(host: '128.199.14.190', port: 28015);
     final encryption = EncryptionService(Encrypter(AES(Key.fromLength(32))));
     await createDb(r, connection);
     sut = MessageService(r, connection, encryption: encryption);
