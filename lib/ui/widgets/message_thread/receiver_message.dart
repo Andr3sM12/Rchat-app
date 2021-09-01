@@ -41,24 +41,25 @@ class ReceiverMessage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 12.0, left: 12.0),
+                  padding: const EdgeInsets.only(top: 2.0, left: 12.0),
                   child: Align(
                     alignment: Alignment.bottomLeft,
-                    child: Text(
-                      DateFormat('h:mm a').format(_message.message.timestamp),
-                      style: Theme.of(context).textTheme.overline.copyWith(
-                          color: isLightTheme(context)
-                              ? Colors.black54
-                              : Colors.white70),
-                    ),
+                    // child: Text(
+                    //   DateFormat('h:mm a').format(_message.message.timestamp),
+                    //   style: Theme.of(context).textTheme.overline.copyWith(
+                    //       color: isLightTheme(context)
+                    //           ? Colors.black54
+                    //           : Colors.white70),
+                    // ),
                   ),
                 ),
               ],
             ),
           ),
           CircleAvatar(
-            backgroundColor:
-                isLightTheme(context) ? Colors.white : Colors.black,
+            backgroundColor: isLightTheme(context)
+                ? Colors.blueGrey[800]
+                : Colors.blueGrey[200],
             radius: 18,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30.0),

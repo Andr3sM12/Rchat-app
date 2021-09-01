@@ -102,13 +102,13 @@ class _ChatsState extends State<Chats> {
         trailing: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(
-              DateFormat('h:mm a').format(chat.mostRecent.message.timestamp),
-              style: Theme.of(context).textTheme.overline.copyWith(
-                    color:
-                        isLightTheme(context) ? Colors.black54 : Colors.white70,
-                  ),
-            ),
+            // Text(
+            //   DateFormat('h:mm a').format(chat.mostRecent.message.timestamp),
+            //   style: Theme.of(context).textTheme.overline.copyWith(
+            //         color:
+            //             isLightTheme(context) ? Colors.black54 : Colors.white70,
+            //       ),
+            // ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: ClipRRect(

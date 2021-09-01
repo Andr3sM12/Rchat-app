@@ -41,16 +41,16 @@ class SenderMessage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 12.0, left: 12.0),
+                  padding: const EdgeInsets.only(top: 2.0, left: 12.0),
                   child: Align(
                     alignment: Alignment.bottomRight,
-                    child: Text(
-                      DateFormat('h:mm a').format(_message.message.timestamp),
-                      style: Theme.of(context).textTheme.overline.copyWith(
-                          color: isLightTheme(context)
-                              ? Colors.black54
-                              : Colors.white70),
-                    ),
+                    // child: Text(
+                    //   DateFormat('h:mm a').format(_message.message.timestamp),
+                    //   style: Theme.of(context).textTheme.overline.copyWith(
+                    //       color: isLightTheme(context)
+                    //           ? Colors.black54
+                    //           : Colors.white70),
+                    // ),
                   ),
                 ),
               ],

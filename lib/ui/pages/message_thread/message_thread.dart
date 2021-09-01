@@ -102,7 +102,8 @@ class _MessageThreadState extends State<MessageThread> {
         },
         child: Column(children: [
           Flexible(
-            flex: 6,
+            // flex: 1,
+            // fit: FlexFit.loose,
             child: BlocBuilder<MessageThreadCubit, List<LocalMessage>>(
               builder: (__, messages) {
                 this.messages = messages;
@@ -114,20 +115,22 @@ class _MessageThreadState extends State<MessageThread> {
               },
             ),
           ),
-          Expanded(
+          Flexible(
+            flex: 0,
+            // fit: FlexFit.tight,
             child: Container(
-              height: 100,
+              height: 80,
               decoration: BoxDecoration(
                 color: isLightTheme(context) ? Colors.white : kAppBarDark,
                 boxShadow: [
                   BoxShadow(
                     offset: Offset(0, -3),
-                    blurRadius: 6.0,
+                    blurRadius: 20.0,
                     color: Colors.black12,
                   ),
                 ],
               ),
-              alignment: Alignment.topCenter,
+              alignment: Alignment.center,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 12.0),
@@ -188,7 +191,7 @@ class _MessageThreadState extends State<MessageThread> {
 
   _buildMessageInput(BuildContext context) {
     final _border = OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(90.0)),
+      borderRadius: BorderRadius.all(Radius.circular(25.0)),
       borderSide: isLightTheme(context)
           ? BorderSide.none
           : BorderSide(color: Colors.grey.withOpacity(0.3)),
@@ -202,22 +205,26 @@ class _MessageThreadState extends State<MessageThread> {
         _dispatchTyping(Typing.stop);
       },
       child: TextFormField(
-        controller: _textEditingController,
-        textInputAction: TextInputAction.newline,
-        keyboardType: TextInputType.multiline,
-        maxLines: null,
-        style: Theme.of(context).textTheme.caption,
-        cursorColor: kPrimary,
-        onChanged: _sendTypingNotification,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
-          enabledBorder: _border,
-          filled: true,
-          fillColor:
-              isLightTheme(context) ? kPrimary.withOpacity(0.1) : kBubbleDark,
-          focusedBorder: _border,
-        ),
-      ),
+          controller: _textEditingController,
+          textInputAction: TextInputAction.newline,
+          keyboardType: TextInputType.multiline,
+          maxLines: null,
+          style: Theme.of(context).textTheme.caption,
+          cursorColor: kPrimary,
+          onChanged: _sendTypingNotification,
+          decoration: InputDecoration(
+              hintText: "Escribe un mensaje",
+              contentPadding:
+                  EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+              enabledBorder: _border,
+              filled: true,
+              fillColor: isLightTheme(context)
+                  ? kPrimary.withOpacity(0.1)
+                  : kBubbleDark,
+              focusedBorder: _border,
+              suffixIcon: Row(mainAxisSize: MainAxisSize.min, children: [
+                IconButton(icon: Icon(Icons.attach_file), onPressed: () {}),
+              ]))),
     );
   }
 
@@ -290,10 +297,10 @@ class _MessageThreadState extends State<MessageThread> {
     _dispatchTyping(Typing.start);
 
     _startTypingTimer =
-        Timer(Duration(seconds: 5), () {}); //send one event every 5 seconds
+        Timer(Duration(seconds: 3), () {}); //send one event every 5 seconds
 
     _stopTypingTimer =
-        Timer(Duration(seconds: 6), () => _dispatchTyping(Typing.stop));
+        Timer(Duration(seconds: 4), () => _dispatchTyping(Typing.stop));
   }
 
   _scrollToEnd() {
